@@ -1,8 +1,52 @@
 @import "tailwindcss";
 
 :root {
-  --background: #ffffff;
+  --background: #f0f0f0;
   --foreground: #171717;
+  --color-primary: #00ff00;
+  --color-secondary: #00cc00;
+  --color-accent: #00aa00;
+  --color-background: #f0f0f0;
+  --color-text: #000000;
+  --color-border: #cccccc;
+  --color-shadow: rgba(0, 0, 0, 0.1);
+  --color-highlight: #00ff00;
+  --color-error: #ff0000;
+  --color-warning: #ffcc00;
+  --color-success: #00cc00;
+  --color-info: #00aaff;
+
+  /*
+      - background: use for backgrounds of sections or cards
+      - text: use for text color
+      - border: use for borders of elements
+      - shadow: use for box shadows
+      - highlight: use for hover effects or highlights
+      - error: use for error messages or alerts
+      - warning: use for warning messages or alerts
+      - success: use for success messages or alerts
+      - info: use for informational messages or alerts
+  */
+  
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+    --color-primary: #00ff00;
+    --color-secondary: #00cc00;
+    --color-accent: #00aa00;
+    --color-background: #0a0a0a;
+    --color-text: #ffffff;
+    --color-border: #444444;
+    --color-shadow: rgba(255, 255, 255, 0.1);
+    --color-highlight: #00ff00;
+    --color-error: #ff0000;
+    --color-warning: #ffcc00;
+    --color-success: #00cc00;
+    --color-info: #00aaff;
+  }
 }
 
 @theme inline {
@@ -10,13 +54,7 @@
   --color-foreground: var(--foreground);
   --font-sans: var(--font-geist-sans);
   --font-mono: var(--font-geist-mono);
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+  
 }
 
 body {
