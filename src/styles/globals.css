@@ -26,11 +26,90 @@
       - warning: use for warning messages or alerts
       - success: use for success messages or alerts
       - info: use for informational messages or alerts
+
+      - primary: use for primary actions or buttons
+      - secondary: use for secondary actions or buttons
+      - accent: use for accent colors or highlights
+
   */
   
 }
 
-@media (prefers-color-scheme: dark) {
+.bg-primary {
+  background-color: var(--color-primary);
+}
+.bg-secondary {
+  background-color: var(--color-secondary);
+}
+.bg-accent {
+  background-color: var(--color-accent);
+}
+.bg-background {
+  background-color: var(--color-background);
+}
+.bg-text {
+  background-color: var(--color-text);
+}
+.bg-border {
+  background-color: var(--color-border);
+}
+.bg-shadow {
+  background-color: var(--color-shadow);
+}
+.bg-highlight {
+  background-color: var(--color-highlight);
+}
+.bg-error {
+  background-color: var(--color-error);
+}
+.bg-warning {
+  background-color: var(--color-warning);
+}
+.bg-success {
+  background-color: var(--color-success);
+}
+.bg-info {
+  background-color: var(--color-info);
+}
+.text-primary {
+  color: var(--color-primary);
+}
+.text-secondary {
+  color: var(--color-secondary);
+}
+.text-accent {
+  color: var(--color-accent);
+}
+.text-background {
+  color: var(--color-background);
+}
+.text-text {
+  color: var(--color-text);
+}
+.text-border {
+  color: var(--color-border);
+}
+.text-shadow {
+  color: var(--color-shadow);
+}
+.text-highlight {
+  color: var(--color-highlight);
+}
+.text-error {
+  color: var(--color-error);
+}
+.text-warning {
+  color: var(--color-warning);
+}
+.text-success {
+  color: var(--color-success);
+}
+.text-info {
+  color: var(--color-info);
+}
+
+
+/* @media (prefers-color-scheme: dark) {
   :root {
     --background: #0a0a0a;
     --foreground: #ededed;
@@ -47,18 +126,18 @@
     --color-success: #00cc00;
     --color-info: #00aaff;
   }
-}
-
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  
-}
+} */
 
 body {
-  background: var(--background);
-  color: var(--foreground);
   font-family: Arial, Helvetica, sans-serif;
+  height: 100%;
+  width: 100%;
+  margin: 0px;
+  padding: 0px;
+
+}
+
+html {
+  width: 100%;
+  height: 100%;
 }
