@@ -3,8 +3,8 @@
 :root {
   --background: #f0f0f0;
   --foreground: #171717;
-  --color-primary: #00ff00;
-  --color-secondary: #00cc00;
+  --color-primary: #FFBB64;
+  --color-secondary: #FF6868;
   --color-accent: #00aa00;
   --color-background: #f0f0f0;
   --color-text: #000000;
@@ -34,6 +34,18 @@
   */
   
 }
+
+@layer base {
+  :root {
+    --font-bebas: 'Bebas Neue', sans-serif;
+  }
+
+  .font-bebas {
+    font-family: var(--font-bebas);
+  }
+}
+
+/*reefactor global.css, need to put every var in @layer base for classes to become integrated with tailwind */
 
 .bg-primary {
   background-color: var(--color-primary);
@@ -129,7 +141,6 @@
 } */
 
 body {
-  font-family: Arial, Helvetica, sans-serif;
   height: 100%;
   width: 100%;
   margin: 0px;
