@@ -18,16 +18,26 @@ const geistMono = Geist_Mono({
 });
 
 import Header from "@/components/header";
-import CaptureTheFlag from "@/components/welcomeSection";
+import CaptureTheFlag from "@/components/Sections/welcomeSection";
+import HowToPlay from "@/components/Sections/howToPlay";
+import PrivacyChallenge from "@/components/Sections/privacyPolicy";
+import FlagCounter from "@/components/flagsCounter";
+
+import { FlagProvider } from "@/hooks/flagContext";
 
 
 export default function Home() {
   return (
-    <div className={`${bebas.variable} flex flex-col h-screen w-screen bg-background dark:bg-background overflow-x-hidden`}>
-      <Header />
-      <main className="flex h-full w-full py-5">
-        <CaptureTheFlag />
-      </main>
-    </div>
+    <FlagProvider>
+      <div className={`${bebas.variable} flex flex-col min-h-screen w-full bg-background dark:bg-background overflow-x-hidden`}>
+        <Header />
+        <main className="flex flex-col h-full w-full pt-5">
+          <FlagCounter count={1} />
+          <CaptureTheFlag />
+          <HowToPlay />
+          <PrivacyChallenge />
+        </main>
+      </div>
+    </FlagProvider>
   );
 }

@@ -28,7 +28,7 @@ const NavButton = ({href="", name}) =>{
 
 
     return(
-        <Link href={href} className={`flex items-center px-6 md:px-9 lg:px-16 justify-center h-full w-8 md:w-12 lg:w-16 rounded-3xl ${isActive(href) ? "bg-primary" : "bg-transparent"} transition-colors hover:bg-gray-600/10`}>
+        <Link href={href} className={`flex items-center px-6 md:px-9 lg:px-16 justify-center h-full w-8 md:w-12 lg:w-16 rounded-3xl ${isActive(href) ? "bg-primary" : "bg-transparent hover:bg-gray-600/10"} transition-colors `}>
             <span className={` ${isActive(href) ? "text-white" : "text-black"} `}>{name}</span>
         </Link>    
     )   
