@@ -1,20 +1,6 @@
 @import "tailwindcss";
 
 :root {
-  --background: #f0f0f0;
-  --foreground: #171717;
-  --color-primary: #FFBB64;
-  --color-secondary: #FF6868;
-  --color-accent: #00aa00;
-  --color-background: #f0f0f0;
-  --color-text: #000000;
-  --color-border: #cccccc;
-  --color-shadow: rgba(0, 0, 0, 0.1);
-  --color-highlight: #00ff00;
-  --color-error: #ff0000;
-  --color-warning: #ffcc00;
-  --color-success: #00cc00;
-  --color-info: #00aaff;
 
   /*
       - background: use for backgrounds of sections or cards
@@ -38,24 +24,41 @@
 @layer base {
   :root {
     --font-bebas: 'Bebas Neue', sans-serif;
+    --background: #f0f0f0;
+    --foreground: #171717;
+    --color-primary: #FFBB64;
+    --color-secondary: #FF6868;
+    --color-accent: #00aa00;
+    --color-background: #f0f0f0;
+    --color-text: #000000;
+    --color-border: #cccccc;
+    --color-shadow: rgba(0, 0, 0, 0.1);
+    --color-highlight: #00ff00;
+    --color-error: #ff0000;
+    --color-warning: #ffcc00;
+    --color-success: #00cc00;
+    --color-info: #00aaff;
+  
   }
 
   .font-bebas {
     font-family: var(--font-bebas);
   }
+
+  .bg-primary {
+    background-color: var(--color-primary);
+  }
+  .bg-secondary {
+    background-color: var(--color-secondary);
+  }
+  .bg-accent {
+    background-color: var(--color-accent);
+  }
 }
 
 /*reefactor global.css, need to put every var in @layer base for classes to become integrated with tailwind */
 
-.bg-primary {
-  background-color: var(--color-primary);
-}
-.bg-secondary {
-  background-color: var(--color-secondary);
-}
-.bg-accent {
-  background-color: var(--color-accent);
-}
+
 .bg-background {
   background-color: var(--color-background);
 }

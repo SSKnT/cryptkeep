@@ -23,7 +23,7 @@ import CaptureTheFlag from "@/components/welcomeSection";
 
 export default function Home() {
   return (
-    <div className={`${bebas.variable} flex flex-col h-screen w-screen bg-background dark:bg-background overflow-hidden`}>
+    <div className={`${bebas.variable} flex flex-col h-screen w-screen bg-background dark:bg-background overflow-x-hidden`}>
       <Header />
       <main className="flex h-full w-full py-5">
         <CaptureTheFlag />

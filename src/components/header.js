@@ -63,7 +63,7 @@ const LanguageSelector = () => {
   
   const FlagButton = ({ src="", alt="" }) => {
     return (
-      <button className="w-10 h-10 rounded-full overflow-hidden bg-transparent hover:bg-green-300 transition-colors">
+      <button className="w-10 h-10 rounded-full overflow-hidden bg-transparent hover:bg-amber-400/30 transition-colors">
         <img src={src} alt={alt} className="w-[60%] h-[60%] m-auto object-cover rounded-full" />
       </button>
     );
