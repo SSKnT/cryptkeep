@@ -5,8 +5,18 @@ import confetti from "canvas-confetti";
 
 export default function HowToPlay() {
     const [show, setShow] = useState(false)
-    const [isClicked, setIsClicked] = useState(false)
-    const {setFlagCount} = UseFlag()
+    const {addFlag} = UseFlag()
+    const flagAlpha = 'b'
+    
+    const Clicked = () =>{
+        const success = addFlag(flagAlpha)
+        if(success){
+         confetti({ 
+            particleCount: 180,  
+            spread: 90,          
+            origin: { y: 0.65} });
+        }
+    }
 
     return(
         <section className="w-full bg-neutral-900 text-white py-12 px-6">
@@ -32,12 +42,7 @@ export default function HowToPlay() {
                 </ul>
                 { show && <div className="flex justify-center items-center h-[100] w-[25%] bg-background rounded-lg cursor-none">
                 <span
-                    onClick={()=> {setIsClicked(prev => !prev); confetti({ 
-                        particleCount: 180,  
-                        spread: 90,          
-                        origin: { y: 0.65} });
-                        setFlagCount(prev=>prev+1)
-                    }}
+                    onClick={()=> Clicked()}
                     className="" 
                     >🚩</span>
                 </div> }

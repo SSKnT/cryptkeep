@@ -32,7 +32,8 @@ const PrivacyDiv = () => {
   const [selectedChoices, setSelectedChoices] = useState([])
   const [score, setScore] = useState(0)
   const [isComplete, setIsComplete] = useState(false)
-  const {setFlagCount} = UseFlag()
+  const {addFlag} = UseFlag()
+  const flagAlpha = 'c' 
 
   const handleChoice = (choiceIndex) => {
     setSelectedChoices(prev => [...prev, choiceIndex])
@@ -51,12 +52,15 @@ const PrivacyDiv = () => {
 
   useEffect(() => {
     if (isComplete && score >= questions.length * 0.7) {
-      confetti({
+        const success = addFlag(flagAlpha)
+        if(success) {
+        confetti({
         particleCount: 150,
         spread: 90,
         origin: { y: 0.65 }
       })
-      setFlagCount(prev => prev + 1)
+    }
+     
     }
   }, [isComplete, score])
 

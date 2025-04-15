@@ -31,7 +31,8 @@ const CaptureTheFlag = () => {
 const FlagDiv = () => {
     const [flags, setFlags] = useState([0,0,0,0,0,0,0,0])
     const winningCombination = [1, 0, 0, 1, 0, 1, 1, 0];
-    const {setFlagCount} = UseFlag()
+    const {addFlag} = UseFlag()
+    const flagAlpha = 'a'
 
     const ToggleFlag = (index) => {   
         const newFlags = [...flags]
@@ -43,12 +44,14 @@ const FlagDiv = () => {
     useEffect(()=>{
         //Winning Condition
         if (JSON.stringify(flags) === JSON.stringify(winningCombination)) {
+            const success = addFlag(flagAlpha)
+            if (success){
             confetti({ 
                 particleCount: 180,  // Number of confetti particles
                 spread: 90,          // How wide the spray is
                 origin: { y: 0.65}   // Start from bottom of screen
-            });
-        setFlagCount(prev => prev + 1);
+            })}
+        
         }    
     },[flags])
 

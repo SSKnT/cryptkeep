@@ -1,19 +1,27 @@
 import { useEffect, useState } from "react"
 import { UseFlag } from "@/hooks/flagContext"
 
-export default function FlagCounter({ count = 0, isActive = true }) {
+export default function FlagCounter({ isActive = true }) {
   const [visible, setVisible] = useState(false)
-  const {flagCount} = UseFlag()
+  const { foundFlags } = UseFlag()
+  const [animate, setAnimate] = useState(false)
 
   useEffect(() => {
     const handleScroll = () => {
       const shouldShow = window.scrollY > 100
       setVisible(shouldShow)
     }
-
     window.addEventListener("scroll", handleScroll)
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
+
+  // 🔁 Animate on new flag found
+  useEffect(() => {
+    if (foundFlags.length === 0) return
+    setAnimate(true)
+    const timeout = setTimeout(() => setAnimate(false), 1000) // animation lasts 1s
+    return () => clearTimeout(timeout)
+  }, [foundFlags])
 
   return (
     <div
@@ -22,8 +30,12 @@ export default function FlagCounter({ count = 0, isActive = true }) {
       }`}
     >
       <div className="flex items-center gap-4 px-3 py-1 lg:px-6 lg:py-3 bg-[#333] glow text-white rounded-full shadow-xl backdrop-blur-sm">
-        {/* Custom Flag SVG */}
-        <svg viewBox="0 0 24 24" className="shrink-0 h-[20px] w-[20px] lg:h-[40px] lg:w-[40px]">
+        <svg
+          viewBox="0 0 24 24"
+          className={`shrink-0 h-[20px] w-[20px] lg:h-[40px] lg:w-[40px] ${
+            animate ? "animate-wave" : ""
+          }`}
+        >
           <rect
             x="8"
             y="2"
@@ -39,8 +51,8 @@ export default function FlagCounter({ count = 0, isActive = true }) {
           />
         </svg>
 
-        <div className="text-lg font-semibold ">
-          <span className="text-red-400">{flagCount} / 4</span>
+        <div className="text-lg font-semibold">
+          <span className="text-red-400">{foundFlags.length} / 4</span>
         </div>
       </div>
     </div>
