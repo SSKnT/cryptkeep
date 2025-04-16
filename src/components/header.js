@@ -1,6 +1,6 @@
 import Link from "next/link"
 import { useRouter } from "next/router"
-import Button from "@/components/button"
+import Image from "next/image"
 
 const Header = () => {
     return(
@@ -64,7 +64,7 @@ const LanguageSelector = () => {
   const FlagButton = ({ src="", alt="" }) => {
     return (
       <button className="w-10 h-10 rounded-full overflow-hidden bg-transparent hover:bg-amber-400/30 transition-colors">
-        <img src={src} alt={alt} className="w-[60%] h-[60%] m-auto object-cover rounded-full" />
+        <Image src={src} alt={alt} width={15} height={15} className="w-[70%] h-[70%] m-auto object-cover rounded-full" />
       </button>
     );
   };

@@ -1,26 +1,5 @@
 @import "tailwindcss";
 
-:root {
-
-  /*
-      - background: use for backgrounds of sections or cards
-      - text: use for text color
-      - border: use for borders of elements
-      - shadow: use for box shadows
-      - highlight: use for hover effects or highlights
-      - error: use for error messages or alerts
-      - warning: use for warning messages or alerts
-      - success: use for success messages or alerts
-      - info: use for informational messages or alerts
-
-      - primary: use for primary actions or buttons
-      - secondary: use for secondary actions or buttons
-      - accent: use for accent colors or highlights
-
-  */
-  
-}
-
 @layer base {
   :root {
     --font-bebas: 'Bebas Neue', sans-serif;
