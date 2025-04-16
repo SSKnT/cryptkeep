@@ -22,6 +22,7 @@ import CaptureTheFlag from "@/components/Sections/welcomeSection";
 import HowToPlay from "@/components/Sections/howToPlay";
 import PrivacyChallenge from "@/components/Sections/privacyPolicy";
 import FlagCounter from "@/components/flagsCounter";
+import CryptoChallenge from "@/components/Sections/cryptoChallenge";
 
 import { FlagProvider } from "@/hooks/flagContext";
 
@@ -36,6 +37,7 @@ export default function Home() {
           <CaptureTheFlag />
           <HowToPlay />
           <PrivacyChallenge />
+          <CryptoChallenge />
         </main>
       </div>
     </FlagProvider>
