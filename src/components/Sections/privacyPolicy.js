@@ -7,16 +7,16 @@ import confetti from "canvas-confetti"
 
 export default function PrivacyChallenge() {
   return (
-    <section className="min-h-[100vh] w-full bg-[#222831] text-white py-16 px-6">
+    <section className="min-h-[100vh] w-full bg-background text-text py-16 px-6">
       <div className="flex flex-col max-w-5xl mx-auto text-center space-y-10">
         <div className="flex justify-center items-center gap-3">
-          <ShieldCheck size={48} className="text-[#ffd369] drop-shadow-md" />
+          <ShieldCheck size={48} className="text-primary mb-2" />
           <h2 className="text-5xl font-bold font-bebas tracking-wider">
             Privacy Policy Challenge
           </h2>
         </div>
 
-        <p className="text-lg text-neutral-300 max-w-2xl mx-auto">
+        <p className="text-lg text-text opacity-50 max-w-2xl mx-auto">
           Select the best practices to build a privacy policy. Based on your responses, receive a stamp of approval — and perhaps uncover a hidden flag!
         </p>
 
@@ -73,10 +73,10 @@ const PrivacyDiv = () => {
 
 
   return (
-    <div className="w-full bg-[#393e46] p-8 rounded-2xl shadow-lg">
+    <div className="w-full bg-gray-400 p-8 rounded-2xl shadow-lg shadow-black/40">
       {!isComplete ? (
         <div className="space-y-6">
-          <h3 className="text-2xl font-semibold text-[#ffd369]">
+          <h3 className="text-2xl font-semibold text-white">
             {questions[currentIndex].question}
           </h3>
           <div className="flex flex-col gap-4">
@@ -84,7 +84,7 @@ const PrivacyDiv = () => {
               <button
                 key={index}
                 onClick={() => handleChoice(index)}
-                className="text-left bg-[#eeeeee] text-black hover:bg-[#ffd369] font-medium p-4 rounded transition-colors"
+                className="text-left bg-[#eeeeee] text-black hover:bg-[#FFBB64] font-medium p-4 rounded transition-colors"
               >
                 {choice}
               </button>

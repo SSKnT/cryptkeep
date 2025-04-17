@@ -3,136 +3,199 @@
 @layer base {
   :root {
     --font-bebas: 'Bebas Neue', sans-serif;
-    --background: #f0f0f0;
-    --foreground: #171717;
-    --color-primary: #FFBB64;
-    --color-secondary: #FF6868;
-    --color-accent: #00aa00;
-    --color-background: #f0f0f0;
-    --color-text: #000000;
-    --color-border: #cccccc;
-    --color-shadow: rgba(0, 0, 0, 0.1);
-    --color-highlight: #00ff00;
-    --color-error: #ff0000;
-    --color-warning: #ffcc00;
-    --color-success: #00cc00;
-    --color-info: #00aaff;
-  
+    --color-primary: 255 187 100; /* #FFBB64 */
+    --color-primary-light: 255 207 150; /* lighter version */
+    --color-primary-dark: 230 157 60; /* darker version */
+    --color-secondary: 255 104 104; /* #FF6868 */
+    --color-secondary-light: 255 154 154; /* lighter version */
+    --color-secondary-dark: 230 70 70; /* darker version */
+    --color-accent: 0 170 0; /* #00aa00 */
+    --color-accent-light: 0 200 0; /* lighter version */
+    --color-accent-dark: 0 140 0; /* darker version */
+    --color-background: 240 240 240; /* #f0f0f0 */
+    --color-foreground: 23 23 23; /* #171717 */
+    --color-text: 0 0 0; /* #000000 */
+    --color-border: 204 204 204; /* #cccccc */
+    --color-shadow: 0 0 0; /* for rgba(0, 0, 0, 0.1) */
+    --color-highlight: 0 255 0; /* #00ff00 */
+    --color-error: 255 0 0; /* #ff0000 */
+    --color-warning: 255 204 0; /* #ffcc00 */
+    --color-success: 0 204 0; /* #00cc00 */
+    --color-info: 0 170 255; /* #00aaff */
   }
+  
+  body {
+    height: 100%;
+    width: 100%;
+    margin: 0px;
+    padding: 0px;
+  }
+  
+  html {
+    width: 100%;
+    height: 100%;
+  }
+}
 
+@layer utilities {
   .font-bebas {
     font-family: var(--font-bebas);
   }
-
+  
+  /* Primary Color Utilities */
   .bg-primary {
-    background-color: var(--color-primary);
+    background-color: rgb(var(--color-primary));
   }
+  .text-primary {
+    color: rgb(var(--color-primary));
+  }
+  .border-primary {
+    border-color: rgb(var(--color-primary));
+  }
+  
+  /* Primary Light */
+  .bg-primary-light {
+    background-color: rgb(var(--color-primary-light));
+  }
+  .text-primary-light {
+    color: rgb(var(--color-primary-light));
+  }
+  .border-primary-light {
+    border-color: rgb(var(--color-primary-light));
+  }
+  
+  /* Primary Dark */
+  .bg-primary-dark {
+    background-color: rgb(var(--color-primary-dark));
+  }
+  .text-primary-dark {
+    color: rgb(var(--color-primary-dark));
+  }
+  .border-primary-dark {
+    border-color: rgb(var(--color-primary-dark));
+  }
+  
+  /* Secondary Color Utilities */
   .bg-secondary {
-    background-color: var(--color-secondary);
+    background-color: rgb(var(--color-secondary));
   }
+  .text-secondary {
+    color: rgb(var(--color-secondary));
+  }
+  .border-secondary {
+    border-color: rgb(var(--color-secondary));
+  }
+  
+  /* Secondary Variants */
+  .bg-secondary-light {
+    background-color: rgb(var(--color-secondary-light));
+  }
+  .text-secondary-light {
+    color: rgb(var(--color-secondary-light));
+  }
+  .border-secondary-light {
+    border-color: rgb(var(--color-secondary-light));
+  }
+  
+  .bg-secondary-dark {
+    background-color: rgb(var(--color-secondary-dark));
+  }
+  .text-secondary-dark {
+    color: rgb(var(--color-secondary-dark));
+  }
+  .border-secondary-dark {
+    border-color: rgb(var(--color-secondary-dark));
+  }
+  
+  /* Accent Color Utilities */
   .bg-accent {
-    background-color: var(--color-accent);
+    background-color: rgb(var(--color-accent));
   }
-}
-
-/*reefactor global.css, need to put every var in @layer base for classes to become integrated with tailwind */
-
-
-.bg-background {
-  background-color: var(--color-background);
-}
-.bg-text {
-  background-color: var(--color-text);
-}
-.bg-border {
-  background-color: var(--color-border);
-}
-.bg-shadow {
-  background-color: var(--color-shadow);
-}
-.bg-highlight {
-  background-color: var(--color-highlight);
-}
-.bg-error {
-  background-color: var(--color-error);
-}
-.bg-warning {
-  background-color: var(--color-warning);
-}
-.bg-success {
-  background-color: var(--color-success);
-}
-.bg-info {
-  background-color: var(--color-info);
-}
-.text-primary {
-  color: var(--color-primary);
-}
-.text-secondary {
-  color: var(--color-secondary);
-}
-.text-accent {
-  color: var(--color-accent);
-}
-.text-background {
-  color: var(--color-background);
-}
-.text-text {
-  color: var(--color-text);
-}
-.text-border {
-  color: var(--color-border);
-}
-.text-shadow {
-  color: var(--color-shadow);
-}
-.text-highlight {
-  color: var(--color-highlight);
-}
-.text-error {
-  color: var(--color-error);
-}
-.text-warning {
-  color: var(--color-warning);
-}
-.text-success {
-  color: var(--color-success);
-}
-.text-info {
-  color: var(--color-info);
-}
-
-
-/* @media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-    --color-primary: #00ff00;
-    --color-secondary: #00cc00;
-    --color-accent: #00aa00;
-    --color-background: #0a0a0a;
-    --color-text: #ffffff;
-    --color-border: #444444;
-    --color-shadow: rgba(255, 255, 255, 0.1);
-    --color-highlight: #00ff00;
-    --color-error: #ff0000;
-    --color-warning: #ffcc00;
-    --color-success: #00cc00;
-    --color-info: #00aaff;
+  .text-accent {
+    color: rgb(var(--color-accent));
   }
-} */
-
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0px;
-  padding: 0px;
-
-}
-
-html {
-  width: 100%;
-  height: 100%;
+  .border-accent {
+    border-color: rgb(var(--color-accent));
+  }
+  
+  /* Accent Variants */
+  .bg-accent-light {
+    background-color: rgb(var(--color-accent-light));
+  }
+  .text-accent-light {
+    color: rgb(var(--color-accent-light));
+  }
+  .border-accent-light {
+    border-color: rgb(var(--color-accent-light));
+  }
+  
+  .bg-accent-dark {
+    background-color: rgb(var(--color-accent-dark));
+  }
+  .text-accent-dark {
+    color: rgb(var(--color-accent-dark));
+  }
+  .border-accent-dark {
+    border-color: rgb(var(--color-accent-dark));
+  }
+  
+  /* Other Color Utilities */
+  .bg-background {
+    background-color: rgb(var(--color-background));
+  }
+  .text-background {
+    color: rgb(var(--color-background));
+  }
+  
+  .bg-foreground {
+    background-color: rgb(var(--color-foreground));
+  }
+  .text-foreground {
+    color: rgb(var(--color-foreground));
+  }
+  
+  .text-text {
+    color: rgb(var(--color-text));
+  }
+  
+  .border-border {
+    border-color: rgb(var(--color-border));
+  }
+  
+  .bg-highlight {
+    background-color: rgb(var(--color-highlight));
+  }
+  .text-highlight {
+    color: rgb(var(--color-highlight));
+  }
+  
+  .bg-success {
+    background-color: rgb(var(--color-success));
+  }
+  .text-success {
+    color: rgb(var(--color-success));
+  }
+  
+  .bg-error {
+    background-color: rgb(var(--color-error));
+  }
+  .text-error {
+    color: rgb(var(--color-error));
+  }
+  
+  .bg-warning {
+    background-color: rgb(var(--color-warning));
+  }
+  .text-warning {
+    color: rgb(var(--color-warning));
+  }
+  
+  .bg-info {
+    background-color: rgb(var(--color-info));
+  }
+  .text-info {
+    color: rgb(var(--color-info));
+  }
 }
 
 @keyframes waveAnim {
