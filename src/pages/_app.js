@@ -1,5 +1,7 @@
 import "@/styles/globals.css";
 import { Bebas_Neue } from 'next/font/google';
+import { FlagProvider } from "@/hooks/flagContext";
+
 
 const bebas = Bebas_Neue({
   subsets: ['latin'],
@@ -9,8 +11,10 @@ const bebas = Bebas_Neue({
 
 export default function App({ Component, pageProps }) {
   return (
-    <main className={`${bebas.variable} font-sans`}>
-      <Component {...pageProps} />
-    </main>
+    <FlagProvider>
+      <main className={`${bebas.variable} font-sans`}>
+        <Component {...pageProps} />
+      </main>
+    </FlagProvider>
 );
 }

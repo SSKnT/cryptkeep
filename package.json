@@ -10,12 +10,14 @@
     "clean": "if exist .next rmdir /s /q .next && if exist node_modules\\.cache rmdir /s /q node_modules\\.cache"
   },
   "dependencies": {
+    "@supabase/supabase-js": "^2.49.4",
     "canvas-confetti": "^1.9.3",
     "framer-motion": "^12.7.3",
     "lucide-react": "^0.488.0",
     "next": "15.2.4",
     "react": "^19.0.0",
-    "react-dom": "^19.0.0"
+    "react-dom": "^19.0.0",
+    "react-hook-form": "^7.55.0"
   },
   "devDependencies": {
     "@eslint/eslintrc": "^3",
