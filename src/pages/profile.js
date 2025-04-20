@@ -1,4 +1,3 @@
-import Header from "@/components/header";
 import { useProtectedRoute } from "@/hooks/protectedRoutes";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
@@ -202,7 +201,6 @@ export default function Profile() {
 
   return (
     <div className="flex flex-col min-h-screen w-full bg-background dark:bg-background">
-      <Header />
       <main className="flex flex-col flex-grow w-full max-w-4xl mx-auto p-5">
         <div className="bg-white shadow rounded-xl overflow-hidden">
           {/* Profile Header */}

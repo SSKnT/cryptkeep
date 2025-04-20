@@ -1,4 +1,3 @@
-import Header from "@/components/header";
 import { useProtectedRoute } from "@/hooks/protectedRoutes";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
@@ -71,7 +70,12 @@ export default function LeaderBoard() {
           `)
           .order('captured_at', { ascending: true });
           
-        if (error) throw error;
+        if (error) {
+          console.error("Error fetching user flags:", error);
+          throw error;
+        }
+        
+        console.log("Fetched user flags data:", data);
         
         // Process data to create leaderboard entries
         const usersMap = new Map();
@@ -111,8 +115,31 @@ export default function LeaderBoard() {
         if (currentUserId) {
           const userIndex = leaderboardArray.findIndex(user => user.id === currentUserId);
           setUserRank(userIndex !== -1 ? userIndex + 1 : null);
+          
+          // If user has flags from context but not in database, show their profile anyway
+          if (userIndex === -1 && foundFlags.length > 0) {
+            // Add current user to leaderboard with local flag data
+            const userProfile = {
+              id: currentUserId,
+              name: session.user.user_metadata?.name || session.user.email || "You",
+              username: session.user.user_metadata?.username || "user",
+              avatar_url: session.user.user_metadata?.avatar_url,
+              flags: foundFlags,
+              flagCount: foundFlags.length,
+              fastestCapture: new Date().toISOString(),
+              isCurrentUser: true
+            };
+            
+            leaderboardArray.push(userProfile);
+            leaderboardArray.sort((a, b) => b.flagCount - a.flagCount);
+            
+            // Update user rank
+            const newUserIndex = leaderboardArray.findIndex(user => user.id === currentUserId);
+            setUserRank(newUserIndex + 1);
+          }
         }
         
+        console.log("Processed leaderboard data:", leaderboardArray);
         setLeaderboardData(leaderboardArray);
       } catch (error) {
         console.error("Error fetching leaderboard data:", error);
@@ -121,7 +148,9 @@ export default function LeaderBoard() {
       }
     }
     
-  }, []);
+    // Call the function to fetch data
+    fetchLeaderboardData();
+  }, [foundFlags]); // Added foundFlags as a dependency to refresh when flags change
   
   const handleSort = (column) => {
     if (sortBy === column) {
@@ -172,7 +201,6 @@ export default function LeaderBoard() {
 
   return (
     <div className="flex flex-col min-h-screen w-full bg-background dark:bg-background">
-      <Header />
       <main className="flex flex-col flex-grow w-full max-w-6xl mx-auto p-5">
         <div className="flex flex-col space-y-6">
           {/* Leaderboard Header */}
