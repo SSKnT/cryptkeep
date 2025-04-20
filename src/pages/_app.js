@@ -5,6 +5,7 @@ import NProgress from 'nprogress'
 import Router from 'next/router'
 import 'nprogress/nprogress.css'
 import Header from "@/components/header.js";
+import { Toaster } from "sonner";
 
 NProgress.configure({ showSpinner: true }) // optional
 
@@ -21,6 +22,7 @@ const bebas = Bebas_Neue({
 export default function App({ Component, pageProps }) {
   return (
     <FlagProvider>
+      <Toaster richColors position="top-center" />
       <main className={`${bebas.variable} font-sans`}>
         <Header />
         <Component {...pageProps} />
