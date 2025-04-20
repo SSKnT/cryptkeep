@@ -1,40 +1,118 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/pages/api-reference/create-next-app).
+# CryptKeep - Capture The Flag Web Challenge
+
+CryptKeep is an interactive Capture The Flag (CTF) web application where users can test their cybersecurity skills through various challenges, earning flags as they solve puzzles.
+
+![CryptKeep Logo](public/flags-1.png)
+
+## Features
+
+- **Interactive Challenges**: Four unique security and cryptography challenges
+  - Binary Pattern Challenge
+  - Hidden Flag Challenge
+  - Privacy Policy Challenge
+  - Cryptography Decoding Challenge
+- **Leaderboard**: Track your progress against other players
+- **User Profiles**: Create and manage your profile
+- **Real-time Scoring**: See your flag captures update in real-time
+- **Authentication**: Secure sign-up and login with Supabase
+
+## Technologies Used
+
+- **Frontend**: Next.js, React
+- **Styling**: TailwindCSS with custom theme
+- **Authentication**: Supabase Auth
+- **Database**: Supabase PostgreSQL
+- **Animations**: Canvas Confetti for celebrations
+- **Forms**: React Hook Form for form validation
+- **UI Components**: Custom components with Lucide React icons
 
 ## Getting Started
 
-First, run the development server:
+### Prerequisites
+
+- Node.js 18+ and npm
+- Supabase account for backend services
+
+### Environment Setup
+
+Create a `.env.local` file in the root directory with the following variables:
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+NEXT_PUBLIC_SUPABASE_URL=your_supabase_url
+NEXT_PUBLIC_SUPABASE_ANON_KEY=your_supabase_anon_key
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+### Installation
 
-You can start editing the page by modifying `pages/index.js`. The page auto-updates as you edit the file.
+1. Clone the repository:
+```bash
+git clone https://github.com/yourusername/cryptkeep.git
+cd cryptkeep
+```
 
-[API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.js`.
+2. Install dependencies:
+```bash
+npm install
+```
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/pages/building-your-application/routing/api-routes) instead of React pages.
+3. Run the development server:
+```bash
+npm run dev
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/pages/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
 
-## Learn More
+## Project Structure
 
-To learn more about Next.js, take a look at the following resources:
+- `/src/components` - React components
+  - `/Sections` - Main challenge sections of the application
+- `/src/hooks` - Custom React hooks including flag context
+- `/src/lib` - Utility functions and API clients
+- `/src/pages` - Next.js pages and API routes
+- `/src/styles` - Global styles and TailwindCSS configuration
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn-pages-router) - an interactive Next.js tutorial.
+## Challenges
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+The application includes four hidden flags that can be discovered through:
 
-## Deploy on Vercel
+1. **Binary Pattern** - Find the correct binary pattern on the welcome page
+2. **Hidden Flag** - Located within UI elements in the How to Play section
+3. **Privacy Guru** - Complete the privacy policy quiz with at least 70% correct answers
+4. **Cryptography Master** - Decrypt a substitution cipher with a shifting pattern
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Database Schema
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/pages/building-your-application/deploying) for more details.
+The application uses two main tables in Supabase:
+
+- `profiles` - User profile information
+- `user_flags` - Tracks which flags users have found and when
+
+## Deployment
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new).
+
+1. Push your code to a GitHub repository
+2. Connect to Vercel and deploy
+3. Configure the environment variables in the Vercel dashboard
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
+
+## License
+
+This project is licensed under the MIT License - see the LICENSE file for details.
+
+## Acknowledgements
+
+- [Next.js](https://nextjs.org/)
+- [Supabase](https://supabase.com/)
+- [TailwindCSS](https://tailwindcss.com/)
+- [Lucide Icons](https://lucide.dev/)
+- [React Hook Form](https://react-hook-form.com/)
