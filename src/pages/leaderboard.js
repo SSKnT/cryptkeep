@@ -3,6 +3,8 @@ import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { UseFlag } from "@/hooks/flagContext";
 import { Flag, Crown, Trophy, Medal, Clock, Search, ChevronDown, ChevronUp, User } from "lucide-react";
+import Skeleton from "react-loading-skeleton";
+import { toast } from "sonner";
 
 
 export default function LeaderBoard() {
@@ -71,11 +73,8 @@ export default function LeaderBoard() {
           .order('captured_at', { ascending: true });
           
         if (error) {
-          console.error("Error fetching user flags:", error);
           throw error;
         }
-        
-        console.log("Fetched user flags data:", data);
         
         // Process data to create leaderboard entries
         const usersMap = new Map();
@@ -139,10 +138,9 @@ export default function LeaderBoard() {
           }
         }
         
-        console.log("Processed leaderboard data:", leaderboardArray);
         setLeaderboardData(leaderboardArray);
       } catch (error) {
-        console.error("Error fetching leaderboard data:", error);
+        toast.error("Error fetching leaderboard data: ");
       } finally {
         setLoading(false);
       }
@@ -197,7 +195,7 @@ export default function LeaderBoard() {
     return "bg-secondary";
   };
 
-  if (routeLoading) return <p>Loading...</p>;
+  if (routeLoading) return <Skeleton height={150} width={300} />;
 
   return (
     <div className="flex flex-col min-h-screen w-full bg-background dark:bg-background">

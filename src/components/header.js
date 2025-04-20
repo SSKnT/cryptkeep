@@ -113,11 +113,28 @@ const SignOut = ({user}) => {
                     onClick={()=>signOut()}
                 >
                     Sign Out
-                </button>) : null
+                </button>) : <SignIn />
             }
         </div>
     )
 }
 
+const SignIn = () => {
+  const router = useRouter()
+    
+  const signIn = ()=> {
+      router.push("/auth")
+  }
+  return(
+      <div>
+          <button 
+              className="bg-transparent font-medium text-accent border border-accent rounded-full px-4 py-2 hover:bg-[#00aa00] hover:text-white transition-colors ease-in-out delay-20"
+              onClick={()=>signIn()}
+          >
+              Sign In
+          </button>
+      </div>
+  )
+}
 
 export default Header;

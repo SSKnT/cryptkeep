@@ -9,8 +9,6 @@ export async function signUpUser(email, password, name) {
           data: { name }
         }
       });
-      // remove
-      console.log("Supabase signUp result:", { data, error });
 
     return {data, error};
 }

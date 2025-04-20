@@ -1,5 +1,6 @@
 import { useState, useContext, createContext, useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
+import { toast } from "sonner";
 
 const FlagContext = createContext()
 
@@ -66,10 +67,10 @@ export const FlagProvider = ({children}) => {
                         ]);
                         
                     if (error) {
-                        console.error("Error saving flag:", error);
+                        toast.error("Error saving flag");
                     }
                 } catch (err) {
-                    console.error("Error in addFlag:", err);
+                    toast.error("Error saving flag: ");
                 }
             }
             return true;

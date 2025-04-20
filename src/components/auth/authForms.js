@@ -3,6 +3,7 @@ import { useState } from "react";
 import { useForm } from "react-hook-form";
 import { useRouter } from "next/router";
 import { signUpUser, signInUser } from "@/lib/auth"; 
+import { toast } from "sonner";
 
 const AuthForm = () => {
   const router = useRouter();
@@ -16,22 +17,22 @@ const AuthForm = () => {
   const onSubmit = async (data) => {
     if (isLogin) {
        const {error} = await signInUser(data.email, data.password);
-       console.log(error)
        if(!error){
-        router.push("/");
+          toast.success("Logged in successfully!");
+          router.push("/");
        }
          else{
-          alert("Login failed. Please check your credentials.");
+          toast.error(error.message);
          }
     } else {
       const {error} = await signUpUser(data.email, data.password, data.name);
            
       if(!error){
-            alert("Sign up successful! Please check your email for verification.");
+            toast.success("Account created successfully! Please check your email for verification.");
             router.push("/auth");
         }
         else{
-            alert(error.message);
+            toast.error(error.message);
         }
     }
   };

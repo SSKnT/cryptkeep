@@ -2,6 +2,8 @@ import { useProtectedRoute } from "@/hooks/protectedRoutes";
 import { useState, useEffect } from "react";
 import { supabase } from "@/lib/supabaseClient";
 import { User, Lock, Camera, Save, Loader2, AlertCircle, CheckCircle } from "lucide-react";
+import Skeleton from "react-loading-skeleton";
+import { toast } from "sonner";
 
 export default function Profile() {
   const { loading: routeLoading } = useProtectedRoute();
@@ -150,7 +152,7 @@ export default function Profile() {
       
       showNotification("Profile updated successfully", "success");
     } catch (error) {
-      console.error('Error updating profile:', error);
+      toast.error("Error updating profile");
       showNotification("Error updating profile", "error");
     } finally {
       setLoading(false);
@@ -184,7 +186,7 @@ export default function Profile() {
       
       showNotification("Password updated successfully", "success");
     } catch (error) {
-      console.error('Error updating password:', error);
+      toast.error("Error updating password");
       showNotification("Error updating password", "error");
     } finally {
       setLoading(false);
@@ -197,7 +199,7 @@ export default function Profile() {
     setTimeout(() => setNotification(null), 5000);
   };
   
-  if (routeLoading) return <p>Loading...</p>;
+  if (routeLoading) return <Skeleton height={150} width={300} />;
 
   return (
     <div className="flex flex-col min-h-screen w-full bg-background dark:bg-background">
