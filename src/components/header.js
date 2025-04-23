@@ -63,7 +63,7 @@ const Logo = () => {
         <div className="absolute left-1/2 transform -translate-x-1/2 mt-[1%] flex items-center justify-center h-[80%] w-8 md:w-12 lg:w-30 rounded ">
             <svg width="110" height="110" viewBox="0 0 120 110" xmlns="http://www.w3.org/2000/svg">
               <path fill="#FFBB64" d="M60 10L10 30V70C10 95 60 110 60 110S110 95 110 70V30L60 10Z"/>    
-              <path fill="#1A1A1A" d="M60 40C50 40 42 48 42 58C42 68 50 76 60 76S78 68 78 58C78 48 70 40 60 40ZM60 50C65 50 68 53 68 58S65 66 60 66S52 63 52 58S55 50 60 50Z"/>
+              <path className="a" fill="#1A1A1A" d="M60 40C50 40 42 48 42 58C42 68 50 76 60 76S78 68 78 58C78 48 70 40 60 40ZM60 50C65 50 68 53 68 58S65 66 60 66S52 63 52 58S55 50 60 50Z"/>
               <text x="60" y="90" font-family="Bebas Neue, sans-serif" fontSize="14" fontWeight="bold" letterSpacing="2" textAnchor="middle" fill="#1A1A1A">CRYPTKEEP</text>
             </svg>
         </div>
