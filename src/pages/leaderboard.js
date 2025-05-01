@@ -18,9 +18,8 @@ export default function LeaderBoard() {
   const [sortBy, setSortBy] = useState("flags"); // flags, fastest, username
   const [sortDir, setSortDir] = useState("desc");
   const [searchTerm, setSearchTerm] = useState("");
-  const totalFlags = 4; // Update this based on your total flags count
+  const totalFlags = 4; 
   
-  // Define flag details for the UI
   const flagDetails = {
     'a': { 
       name: "Binary Pattern", 
@@ -57,7 +56,6 @@ export default function LeaderBoard() {
         const currentUserId = session?.user?.id;
         setCurrentUser(session?.user);
         
-        // Get user flags with joined profile information
         const { data, error } = await supabase
           .from('user_flags')
           .select(`
