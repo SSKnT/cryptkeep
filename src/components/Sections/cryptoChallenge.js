@@ -34,8 +34,8 @@ const CryptoPuzzle = () => {
   const { addFlag } = UseFlag();
   const flagAlpha = 'd';
 
-  // The encrypted text using a custom substitution cipher with a shift pattern
-  const encryptedText = "MXPVSWPH WKLV PHVVDJH WR FODLP BRXU IODJ: VHFXULWB ILUVW";
+  // Shifted encrypted text (Caesar cipher with a shift of 3)
+  const encryptedText = "GHFLSKHU WKLV PHVVDJH WR FODLP BRXU IODJ: VHFXULWB ILUVW";
   
   // The expected solution (decrypted)
   const solution = "DECIPHER THIS MESSAGE TO CLAIM YOUR FLAG: SECURITY FIRST";

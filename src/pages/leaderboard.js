@@ -102,13 +102,10 @@ export default function LeaderBoard() {
           }
         });
         
-        // Convert to array for sorting/display
         const leaderboardArray = Array.from(usersMap.values());
         
-        // Sort by flag count (default)
         leaderboardArray.sort((a, b) => b.flagCount - a.flagCount);
         
-        // Find current user's rank
         if (currentUserId) {
           const userIndex = leaderboardArray.findIndex(user => user.id === currentUserId);
           setUserRank(userIndex !== -1 ? userIndex + 1 : null);
