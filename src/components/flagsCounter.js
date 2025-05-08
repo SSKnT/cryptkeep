@@ -15,7 +15,7 @@ export default function FlagCounter({ isActive = true }) {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
-  // 🔁 Animate on new flag found
+  
   useEffect(() => {
     if (foundFlags.length === 0) return
     setAnimate(true)

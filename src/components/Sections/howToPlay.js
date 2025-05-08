@@ -40,7 +40,7 @@ export default function HowToPlay() {
                   <li>Once you discover the correct pattern, you&apos;ll trigger a <span className="text-green-400 font-medium">celebratory confetti!</span></li>
                   <li>Pay attention to subtle clues — some flags might be hidden elsewhere on the site 👀</li>
                 </ul>
-                { show && <div className="flex justify-center items-center h-[100] w-[25%] bg-background rounded-lg cursor-none">
+                { show && <div className="flex justify-center items-center h-[100] w-[25%] rounded-lg cursor-none">
                 <span
                     onClick={()=> Clicked()}
                     className="" 
